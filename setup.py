@@ -8,7 +8,7 @@ from setuptools import setup, find_packages
 
 INSTALL_REQUIRES = [
     'cachetools>=2.0.0',
-    'cld2-cffi>=0.1.4',
+    # 'cld2-cffi>=0.1.4',
     'cytoolz>=0.8.0',
     'ftfy>=4.2.0',
     'ijson>=2.3',
@@ -70,4 +70,5 @@ setup(
     packages=find_packages(),
     install_requires=INSTALL_REQUIRES,
     extras_require=EXTRAS_REQUIRE,
+    zip_safe=False,
     )

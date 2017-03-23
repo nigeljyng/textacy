@@ -6,7 +6,7 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 import logging
 import re
 
-from cld2 import detect as cld2_detect
+# from cld2 import detect as cld2_detect
 
 from textacy.compat import PY2, unicode_to_bytes
 from textacy.constants import (ACRONYM_REGEX, DANGLING_PARENS_TERM_RE,
@@ -58,27 +58,27 @@ def is_acronym(token, exclude=None):
     return True
 
 
-def detect_language(text):
-    """
-    Detect the most likely language of a text and return its 2-letter code
-    (see https://cloud.google.com/translate/v2/using_rest#language-params).
-    Uses the `cld2-cffi <https://pypi.python.org/pypi/cld2-cffi>`_ package;
-    to take advantage of optional params, call :func:`cld2.detect()` directly.
+# def detect_language(text):
+    # """
+    # Detect the most likely language of a text and return its 2-letter code
+    # (see https://cloud.google.com/translate/v2/using_rest#language-params).
+    # Uses the `cld2-cffi <https://pypi.python.org/pypi/cld2-cffi>`_ package;
+    # to take advantage of optional params, call :func:`cld2.detect()` directly.
 
-    Args:
-        text (str)
+    # Args:
+        # text (str)
 
-    Returns:
-        str
-    """
-    if PY2:
-        is_reliable, _, best_guesses = cld2_detect(unicode_to_bytes(text), bestEffort=True)
-    else:
-        is_reliable, _, best_guesses = cld2_detect(text, bestEffort=True)
-    if is_reliable is False:
-        msg = 'Text language detected with low confidence; best guesses: %s'
-        logger.warning(msg, best_guesses)
-    return best_guesses[0][1]
+    # Returns:
+        # str
+    # """
+    # if PY2:
+        # is_reliable, _, best_guesses = cld2_detect(unicode_to_bytes(text), bestEffort=True)
+    # else:
+        # is_reliable, _, best_guesses = cld2_detect(text, bestEffort=True)
+    # if is_reliable is False:
+        # msg = 'Text language detected with low confidence; best guesses: %s'
+        # logger.warning(msg, best_guesses)
+    # return best_guesses[0][1]
 
 
 def keyword_in_context(text, keyword, ignore_case=True,

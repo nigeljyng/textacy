@@ -1,4 +1,13 @@
 ========================================
+textacy fork without ``cld2-cffi`` dependency
+========================================
+
+**Note: This is a fork of textacy that doesn't have the cld2-cffi depency. I've found it impossible
+to get textacy to work on my Ubuntu instances otherwise - it throws obscure C++ errors.**
+
+To install, clone the folder and run ``python setup.py install``.
+
+========================================
 textacy: higher-level NLP built on spaCy
 ========================================
 
